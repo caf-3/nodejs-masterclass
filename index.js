@@ -10,6 +10,9 @@ const server = http.createServer(function(req, res) {
 
     //get the path
     const path = parsedUrl.pathname;
+
+    //get the method
+    const method = req.method.toUpperCase();
     
     //remove forward slashes from all sides (not removing those in the middle)
     const trimedPath = path.replace(/^\/+|\/+$/g, '');
@@ -18,7 +21,7 @@ const server = http.createServer(function(req, res) {
     res.end('Ola mundo');
 
     //log the request path
-    console.log(`HTTP REQUEST RECEIVED AT /${trimedPath}`);
+    console.log(`HTTP ${method} REQUEST RECEIVED AT /${trimedPath}`);
 });
 
 //server listening
