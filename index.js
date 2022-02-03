@@ -1,9 +1,24 @@
 //built-in dependencies
 const http = require('http');
+const url = require('url');
 
 //server responses for api calls
 const server = http.createServer(function(req, res) {
+    
+    //get the url and parse it
+    const parsedUrl = url.parse(req.url, true);
+
+    //get the path
+    const path = parsedUrl.pathname;
+    
+    //remove forward slashes from all sides (not removing those in the middle)
+    const trimedPath = path.replace(/^\/+|\/+$/g, '');
+    
+    //send response
     res.end('Ola mundo');
+
+    //log the request path
+    console.log(`HTTP REQUEST RECEIVED AT /${trimedPath}`);
 });
 
 //server listening
