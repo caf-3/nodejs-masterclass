@@ -17,11 +17,14 @@ const server = http.createServer(function(req, res) {
     //remove forward slashes from all sides (not removing those in the middle)
     const trimedPath = path.replace(/^\/+|\/+$/g, '');
     
+    //get the query string as an object
+    const queryStringObject = parsedUrl.query;
+
     //send response
     res.end('Ola mundo');
 
     //log the request path
-    console.log(`HTTP ${method} REQUEST RECEIVED AT /${trimedPath}`);
+    console.log(`HTTP ${method} REQUEST RECEIVED AT /${trimedPath} WITH THE FOLLOWING QUERY STRINGS: ${JSON.stringify(queryStringObject)}`);
 });
 
 //server listening
