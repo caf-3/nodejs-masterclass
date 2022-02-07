@@ -20,11 +20,14 @@ const server = http.createServer(function(req, res) {
     //get the query string as an object
     const queryStringObject = parsedUrl.query;
 
+    //get the headers
+    const headers = req.headers;
+
     //send response
     res.end('Ola mundo');
 
-    //log the request path
-    console.log(`HTTP ${method} REQUEST RECEIVED AT /${trimedPath} WITH THE FOLLOWING QUERY STRINGS: ${JSON.stringify(queryStringObject)}`);
+    //parsing headers
+    console.log(headers)
 });
 
 //server listening
