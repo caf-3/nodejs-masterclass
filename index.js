@@ -2,6 +2,7 @@
 const http = require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const config = require('./config')
 
 // server responses for api calls
 const server = http.createServer(function(req, res) {
@@ -54,6 +55,10 @@ const server = http.createServer(function(req, res) {
             // If the payload sent by the handler is not and object, we send an empty object
             payload = typeof(payload) == "object" ? payload : {}
             payload = JSON.stringify(payload)
+
+            // Set the response Content-Type
+            res.setHeader("Content-Type", "application/json");
+
             // HTTP status code
             res.writeHead(statusCode);
 
@@ -83,8 +88,8 @@ handlers.notFound = function(data, cb){
 
 // Define a request router 
 const router = {sample: handlers.sample}
+
 // server listening
-const PORT = 3000;
-server.listen(PORT, function(){
-    console.log('Server listening on port',PORT);
+server.listen(config.port, function(){
+    console.log(`Server listening on port ${config.port} on ${config.envName} mode`);
 });
