@@ -5,12 +5,12 @@ const url = require('url');
 const handlers = {};
 
 /**
- * Sample handler
+ * Ping handler
  * cb stands for callback
  */
- handlers.sample = function(data, cb){
+ handlers.ping = function(data, cb){
     // Callback a http statusCode and the payload object
-    cb(401, {message: "You reached the sample route handler"})
+    cb(200)
 }
 //  For not defined handlers
 handlers.notFound = function(data, cb){
@@ -18,7 +18,7 @@ handlers.notFound = function(data, cb){
 }
 
 // Define a request router 
-const router = {sample: handlers.sample}
+const router = {ping: handlers.ping}
 
 module.exports.serverHandler = (req, res) => {
     // get the url and parse it
@@ -79,7 +79,7 @@ module.exports.serverHandler = (req, res) => {
             // The response
             res.end(payload);
 
-            console.log({ data })
+            console.log({ data, statusCode })
         })
     });
 }
