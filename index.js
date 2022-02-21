@@ -3,6 +3,14 @@ const http = require('http');
 const https = require('https')
 const config = require('./config')
 const fs = require('fs');
+const _data = require('./lib/data');
+
+// TESTING
+// @TODO delete this
+
+_data.create({dir: 'test', file: 'newFile', data: { role: 'NodeJs developer' }, callback: function(error){
+    console.log('This was the error:\n'+error)
+}})
 
 // server handler
 const { serverHandler } = require('./serverHandler')
