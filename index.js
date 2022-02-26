@@ -13,7 +13,7 @@ const _data = require('./lib/data');
 //     console.log('Data from the file', data)
 // }})
 
-_data.update({dir: 'test', file: 'newFile', data: { role: 'Backend & DevOps', company: 'VOID Tecnologia e telecomunicações'} , callback: function(err){
+_data.delete({dir: 'test2', file: 'newFile', callback: function(err){
     console.log('This was the error:', err)
 }})
 
