@@ -8,9 +8,13 @@ const _data = require('./lib/data');
 // TESTING
 // @TODO delete this
 
-_data.read({dir: 'test3', file: 'newFile', callback: function(err, data){
-    if(err) throw err;
-    console.log('Data from the file', data)
+// _data.read({dir: 'test3', file: 'newFile', callback: function(err, data){
+//     if(err) throw err;
+//     console.log('Data from the file', data)
+// }})
+
+_data.update({dir: 'test', file: 'newFile', data: { role: 'Backend & DevOps', company: 'VOID Tecnologia e telecomunicações'} , callback: function(err){
+    console.log('This was the error:', err)
 }})
 
 // server handler
