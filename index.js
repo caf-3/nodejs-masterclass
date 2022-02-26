@@ -8,8 +8,9 @@ const _data = require('./lib/data');
 // TESTING
 // @TODO delete this
 
-_data.create({dir: 'test', file: 'newFile', data: { role: 'NodeJs developer' }, callback: function(error){
-    console.log('This was the error:\n'+error)
+_data.read({dir: 'test3', file: 'newFile', callback: function(err, data){
+    if(err) throw err;
+    console.log('Data from the file', data)
 }})
 
 // server handler
