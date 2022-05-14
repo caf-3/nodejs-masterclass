@@ -12,14 +12,16 @@ const environments = {};
 environments.stating = {
     httpPort: 3000,
     httpsPort: 3001,
-    envName: 'stating'
+    envName: 'stating',
+    hashingSecret: 'hashMyUsers'
 }
 
 // Production environment
 environments.production = {
     httpPort: 5000,
     httpsPort: 5001,
-    envName: 'production'
+    envName: 'production',
+    hashingSecret: 'hashMyUsers'
 }
 
 // Get the environment passed as a command-line argument
